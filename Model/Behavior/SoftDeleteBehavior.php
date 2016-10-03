@@ -25,7 +25,7 @@ class SoftDeleteBehavior extends ModelBehavior {
  * @var array $default
  */
 	public $default = array(
-		'deleted' => 'deleted_date',
+		'deleted' => 'deleted_date'
 	);
 
 /**
@@ -60,6 +60,12 @@ class SoftDeleteBehavior extends ModelBehavior {
 			$model->setSource($model->table);
 		} catch (MissingTableException $e) {
 			return;
+		}
+		
+		if (array_key_exists('atomic', $settings)) {
+			$this->_atomic = $settings['atomic'];
+			unset($settings['atomic']);
+
 		}
 
 		if (empty($settings)) {
