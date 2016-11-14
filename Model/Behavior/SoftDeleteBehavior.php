@@ -25,7 +25,7 @@ class SoftDeleteBehavior extends ModelBehavior {
  * @var array $default
  */
 	public $default = array(
-		'deleted' => 'deleted_date',
+		'deleted' => 'deleted_date'
 	);
 
 /**
